@@ -1,3 +1,1 @@
-# demo-easysourcing-wme
-
-Hoi
+# Shop API Service
