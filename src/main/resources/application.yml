@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: "shop-api-service"
+  elasticsearch:
+    rest:
+      uris: "localhost:9200"
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: false
+        default-page-size: 25
+        max-page-size: 50
+
+server:
+  port: 5000
+  servlet:
+    context-path: "/api"
+  # make sure the responses includes an errormessage so the client can fix his wrong api requests
+  # https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.3-Release-Notes#changes-to-the-default-error-pages-content
+  error:
+    include-message: always
+    include-stacktrace: never
+    include-binding-errors: never
+
+easysourcing:
+  application-id: ${spring.application.name}
+  bootstrap-servers: "localhost:9092"
+  replicas: 1
+  partitions: 1
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: warn
+    com:
+      github:
+        easysourcing: debug
+    io:
+      github:
+        alikelleci: debug
