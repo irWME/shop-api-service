@@ -1,6 +1,6 @@
 package nl.simpliphi.shopapiservice.config;
 
-import io.github.alikelleci.easysourcing.GatewayBuilder;
+import com.github.easysourcing.GatewayBuilder;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

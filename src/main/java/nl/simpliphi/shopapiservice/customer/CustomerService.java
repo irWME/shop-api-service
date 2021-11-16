@@ -1,6 +1,6 @@
 package nl.simpliphi.shopapiservice.customer;
 
-import io.github.alikelleci.easysourcing.messages.commands.CommandGateway;
+import com.github.easysourcing.messages.commands.CommandGateway;
 import lombok.extern.slf4j.Slf4j;
 import nl.simpliphi.shopdomain.customer.CustomerCommand;
 import nl.simpliphi.shopprojections.customer.CustomerDto;
@@ -8,8 +8,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MultiValueMap;
-
-import java.time.Instant;
 
 @Slf4j
 @Service
