@@ -25,16 +25,6 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
-    public ResponseEntity<String> getMessage() {
-        return ResponseEntity.ok().body(Instant.now() + " | Hi demo!");
-    }
-
-    @GetMapping("/exception")
-    public ResponseEntity<String> exception() {
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad request because a terrible validation exception occurred...", new RuntimeException());
-    }
-
     @GetMapping("/find")
     public ResponseEntity<SearchHits<CustomerDto>> findCustomers(
             @RequestParam(required = false) MultiValueMap<String, String> params,
@@ -51,5 +41,15 @@ public class CustomerController {
     @PostMapping("create/{id}/{firstName}/{lastName}")
     public ResponseEntity<String> createCustomer(@PathVariable String id, @PathVariable String firstName, @PathVariable String lastName) {
         return ResponseEntity.accepted().body("Triggered command: " + customerService.createCustomer(id, firstName, lastName));
+    }
+
+    @GetMapping
+    public ResponseEntity<String> getMessage() {
+        return ResponseEntity.ok().body(Instant.now() + " | Hi demo!");
+    }
+
+    @GetMapping("/exception")
+    public ResponseEntity<String> exception() {
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Bad request because a terrible validation exception occurred...", new RuntimeException());
     }
 }
