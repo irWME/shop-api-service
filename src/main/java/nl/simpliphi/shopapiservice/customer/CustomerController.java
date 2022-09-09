@@ -43,6 +43,11 @@ public class CustomerController {
         return ResponseEntity.accepted().body("Triggered command: " + customerService.createCustomer(id, firstName, lastName));
     }
 
+    @PatchMapping("update/{id}/{firstName}")
+    public ResponseEntity<String> updateCustomer(@PathVariable String id, @PathVariable String firstName) {
+        return ResponseEntity.accepted().body("Triggered command: " + customerService.updateCustomer(id, firstName));
+    }
+
     @GetMapping
     public ResponseEntity<String> getMessage() {
         return ResponseEntity.ok().body(Instant.now() + " | Hi demo!");

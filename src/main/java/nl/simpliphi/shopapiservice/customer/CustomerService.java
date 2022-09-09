@@ -40,4 +40,14 @@ public class CustomerService {
 
         return command;
     }
+
+    public CustomerCommand.ChangeFirstName updateCustomer(String id, String firstName) {
+        CustomerCommand.ChangeFirstName command = CustomerCommand.ChangeFirstName.builder()
+                .customerId(id)
+                .firstName(firstName)
+                .build();
+        commandGateway.send(command);
+
+        return command;
+    }
 }
