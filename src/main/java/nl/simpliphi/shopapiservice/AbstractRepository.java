@@ -19,7 +19,7 @@ import java.util.function.Consumer;
 
 @Slf4j
 public abstract class AbstractRepository<T> {
-  private final SearchHits<T> emptySearchHits = new SearchHitsImpl<>(0, TotalHitsRelation.EQUAL_TO, 0f, null, Collections.emptyList(), null);
+  private final SearchHits<T> emptySearchHits = new SearchHitsImpl<>(0, TotalHitsRelation.EQUAL_TO, 0f, null, Collections.emptyList(), null, null);
   private final ElasticsearchRestTemplate elasticsearchRestTemplate;
   private final Class<T> entityClazz;
 
